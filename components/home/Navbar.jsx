@@ -34,8 +34,8 @@ const Navbar = () => {
                     </ul>
                 </div>
                 {/* Mobile Navigation menu */}
-                <div className='md:hidden'>
-
+                <div className='md:hidden flex items-center'>
+                <UserButton />
                     <Sheet>
                         <SheetTrigger asChild>
                             <Button variant='ghost'>
@@ -57,15 +57,14 @@ const Navbar = () => {
                         </Link>
                     </ul>
                             <SheetFooter className='py-12'>
-                                    <div className="flex items-center  my-12 gap-4">
+                                    <div className="flex my-12 gap-4">
                                         {user ? (
                                             <div className="flex items-center gap-2">
                                                 <h1 className='font-medium '>AccountHolder:</h1>
-                                                <UserButton />
-                                                <h1 className="text-gray-900">{user?.fullName}</h1>
+                                                <h1 className="text-red-500 font-bold text-lg">{user?.fullName}</h1>
                                             </div>
                                         ) : (
-                                            <div className="flex items-center justify-center gap-3">
+                                            <div className="flex items-center justify-center pl-20 gap-4">
                                                 <Link href="/sign-in">
                                                     <Button variant="ghost" className="text-gray-900 border border-gray-900/50 hover:bg-gray-300">Signin</Button>
                                                 </Link>
@@ -86,7 +85,6 @@ const Navbar = () => {
                     <div className="flex items-center gap-4">
                         {user ? (
                             <div className="flex items-center gap-2">
-                                <UserButton />
                                 <h1 className="text-gray-900">{user?.fullName}</h1>
                             </div>
                         ) : (
