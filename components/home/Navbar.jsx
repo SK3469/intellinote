@@ -1,7 +1,10 @@
+"use Client"
 import React from 'react';
 import { Button } from '../ui/button';
 import { UserButton, useUser } from '@clerk/nextjs';
 import Link from 'next/link';
+import { Menu } from 'lucide-react';
+import { Sheet, SheetClose, SheetContent,  SheetFooter,  SheetTrigger } from '../ui/sheet';
 
 const Navbar = () => {
     const { user } = useUser();
@@ -14,14 +17,14 @@ const Navbar = () => {
                     IntelliNote-AI
                 </h1>
 
-                {/* Navigation Links */}
-                <div className="px-6 py-2 rounded-full bg-green-500/30 backdrop-blur-lg shadow-md">
+                {/*Desktop Navigation Links */}
+                <div className="hidden md:block px-6 py-2 rounded-full bg-green-500/30 backdrop-blur-lg shadow-md">
                     <ul className="flex justify-center items-center gap-6 text-gray-900 font-medium">
                         <Link href={'/'} className='relative cursor-pointer text-base hover:scale-105 transition-all after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-black after:transition-all after:duration-300 hover:after:w-full'>
                             <li>Home</li>
                         </Link>
                         {
-                            user &&(<Link href={'/dashboard'} className='relative cursor-pointer text-base hover:scale-105 transition-all after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-black after:transition-all after:duration-300 hover:after:w-full'>
+                            user && (<Link href={'/dashboard'} className='relative cursor-pointer text-base hover:scale-105 transition-all after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-black after:transition-all after:duration-300 hover:after:w-full'>
                                 <li>Dashboard</li>
                             </Link>)
                         }
@@ -30,24 +33,73 @@ const Navbar = () => {
                         </Link>
                     </ul>
                 </div>
+                {/* Mobile Navigation menu */}
+                <div className='md:hidden'>
 
+                    <Sheet>
+                        <SheetTrigger asChild>
+                            <Button variant='ghost'>
+                                <Menu />
+                            </Button>
+                        </SheetTrigger>
+                        <SheetContent>
+                        <ul className="flex flex-col gap-6 text-gray-900 font-medium my-16">
+                        <Link href={'/'} className=' p-2  hover:bg-slate-200 '>
+                            <li>Home</li>
+                        </Link>
+                        {
+                            user && (<Link href={'/dashboard'} className='p-2  hover:bg-slate-200 '>
+                                <li>Dashboard</li>
+                            </Link>)
+                        }
+                        <Link href={'/how-to-use'} className='p-2  hover:bg-slate-200'>
+                            <li>How to use?</li>
+                        </Link>
+                    </ul>
+                            <SheetFooter className='py-12'>
+                                    <div className="flex items-center  my-12 gap-4">
+                                        {user ? (
+                                            <div className="flex items-center gap-2">
+                                                <h1 className='font-medium '>AccountHolder:</h1>
+                                                <UserButton />
+                                                <h1 className="text-gray-900">{user?.fullName}</h1>
+                                            </div>
+                                        ) : (
+                                            <div className="flex items-center justify-center gap-3">
+                                                <Link href="/sign-in">
+                                                    <Button variant="ghost" className="text-gray-900 border border-gray-900/50 hover:bg-gray-300">Signin</Button>
+                                                </Link>
+                                                <Link href="/sign-up">
+                                                    <Button className="bg-gray-900 text-white hover:bg-gray-700">Signup</Button>
+                                                </Link>
+                                            </div>
+                                        )}
+                                    </div>
+                              
+                            </SheetFooter>
+                        </SheetContent>
+                    </Sheet>
+
+                </div>
                 {/* Authentication Buttons */}
-                <div className="flex items-center gap-4">
-                    {user ? (
-                        <div className="flex items-center gap-2">
-                            <UserButton />
-                            <h1 className="text-gray-900">{user?.fullName}</h1>
-                        </div>
-                    ) : (
-                        <div className="flex items-center gap-3">
-                            <Link href="/sign-in">
-                                <Button variant="ghost" className="text-gray-900 border border-gray-900/50 hover:bg-gray-300">Signin</Button>
-                            </Link>
-                            <Link href="/sign-up">
-                                <Button className="bg-gray-900 text-white hover:bg-gray-700">Signup</Button>
-                            </Link>
-                        </div>
-                    )}
+                <div className='hidden md:block'>
+                    <div className="flex items-center gap-4">
+                        {user ? (
+                            <div className="flex items-center gap-2">
+                                <UserButton />
+                                <h1 className="text-gray-900">{user?.fullName}</h1>
+                            </div>
+                        ) : (
+                            <div className="flex items-center gap-3">
+                                <Link href="/sign-in">
+                                    <Button variant="ghost" className="text-gray-900 border border-gray-900/50 hover:bg-gray-300">Signin</Button>
+                                </Link>
+                                <Link href="/sign-up">
+                                    <Button className="bg-gray-900 text-white hover:bg-gray-700">Signup</Button>
+                                </Link>
+                            </div>
+                        )}
+                    </div>
                 </div>
             </nav>
         </div>

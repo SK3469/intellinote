@@ -1,7 +1,7 @@
 import React from "react";
 
 const PdfViewer = ({ fileUrl }) => {
-  console.log("pdfurlcheck=>", fileUrl);
+  // console.log("pdfurlcheck=>", fileUrl);
 
   if (!fileUrl) {
     return <p>Loading PDF...</p>; // Show a loading message until fileUrl is available
