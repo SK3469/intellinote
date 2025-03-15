@@ -85,6 +85,7 @@ const Navbar = () => {
                     <div className="flex items-center gap-4">
                         {user ? (
                             <div className="flex items-center gap-2">
+                                <UserButton/>
                                 <h1 className="text-gray-900">{user?.fullName}</h1>
                             </div>
                         ) : (
