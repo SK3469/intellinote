@@ -1,12 +1,13 @@
 "use client";  // Ensure it's a client component
 import { api } from "@/convex/_generated/api";
-import { UserButton, useUser } from "@clerk/nextjs";
+import { useUser } from "@clerk/nextjs";
 import { useMutation } from "convex/react";
 import { useEffect } from "react";
 import Navbar from "../components/home/Navbar"
 import Hero from "../components/home/HeroSection"
 import Footer from "../components/home/Footer"
-import Test from "../app/testimonial/page"
+import Test from "../components/home/Testimonial"
+
 
 
 export default function Home() {
