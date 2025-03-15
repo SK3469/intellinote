@@ -47,7 +47,7 @@ const Testimonial = () => {
             </div>
 
             {/* Swiper Carousel */}
-            <div className="mt-12 max-w-4xl mx-auto">
+            <div className="mt-12 p-5 max-w-5xl mx-auto">
                 <Swiper
                     modules={[Navigation, Pagination, Autoplay]}
                     spaceBetween={30}
@@ -59,13 +59,13 @@ const Testimonial = () => {
                         768: { slidesPerView: 2 },
                         1024: { slidesPerView: 3 },
                     }}
-                    className="w-full"
+                    className="w-auto"
                 >
                     {testimonials.map((testimonial, index) => (
                         <SwiperSlide key={index} className="p-4">
                             <div className="bg-white p-6 rounded-2xl shadow-lg transition-transform transform hover:scale-105">
                                 <div className="flex items-center space-x-4">
-                                    <img src={testimonial.image} alt={testimonial.name} className="w-14 h-14 rounded-full" />
+                                    <img src={testimonial.image} alt={testimonial.name} className="w-16 h-16 rounded-full" />
                                     <div>
                                         <h3 className="text-lg font-semibold">{testimonial.name}</h3>
                                         <p className="text-gray-500 text-sm">{testimonial.role}</p>
