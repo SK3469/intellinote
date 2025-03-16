@@ -40,17 +40,17 @@ const testimonials = [
 
 const Testimonial = () => {
     return (
-        <div className="min-h-screen bg-gradient-to-r from-blue-500 to-purple-600 py-12 px-4 sm:px-6 lg:px-8">
+        <div id='testimonial' className="min-h-screen bg-gradient-to-r from-blue-500 to-purple-600 py-12 px-4 sm:px-6 lg:px-8">
             <div className="max-w-5xl mx-auto text-center">
                 <h2 className="text-4xl font-bold text-white">What Our Users Say</h2>
                 <p className="mt-2 text-lg text-gray-200">Trusted by thousands of professionals worldwide.</p>
             </div>
 
             {/* Swiper Carousel */}
-            <div className="mt-12 p-5 max-w-5xl mx-auto">
+            <div className="mt-12 p-5  max-w-5xl mx-auto ">
                 <Swiper
                     modules={[Navigation, Pagination, Autoplay]}
-                    spaceBetween={30}
+                    spaceBetween={40}
                     slidesPerView={1}
                     autoplay={{ delay: 3000, disableOnInteraction: false }}
                     pagination={{ clickable: true }}
@@ -59,10 +59,10 @@ const Testimonial = () => {
                         768: { slidesPerView: 2 },
                         1024: { slidesPerView: 3 },
                     }}
-                    className="w-auto"
+                    className=" bg-green-200 rounded-lg shadow-xl "
                 >
                     {testimonials.map((testimonial, index) => (
-                        <SwiperSlide key={index} className="p-4">
+                        <SwiperSlide key={index} className="p-6">
                             <div className="bg-white p-6 rounded-2xl shadow-lg transition-transform transform hover:scale-105">
                                 <div className="flex items-center space-x-4">
                                     <img src={testimonial.image} alt={testimonial.name} className="w-16 h-16 rounded-full" />

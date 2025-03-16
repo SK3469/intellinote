@@ -6,7 +6,7 @@ import { Button } from '../ui/button';
 const HeroSection = () => {
     const {user} = useUser()
   return (
-    <div className="relative w-full h-screen flex flex-col items-center justify-center text-center bg-gradient-to-r from-blue-500 to-purple-600 px-4">
+    <div id='hero' className="relative w-full h-screen flex flex-col items-center justify-center text-center bg-gradient-to-r from-blue-500 to-purple-600 px-4">
       {/* Floating Background Effect */}
       <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_top_left,_rgba(255,255,255,0.2),_transparent)]"></div>
 

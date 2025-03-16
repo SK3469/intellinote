@@ -7,6 +7,7 @@ import Navbar from "../components/home/Navbar"
 import Hero from "../components/home/HeroSection"
 import Footer from "../components/home/Footer"
 import Test from "../components/home/Testimonial"
+import HowToUse from "../components/home/HowToUsePage"
 
 
 
@@ -34,6 +35,7 @@ export default function Home() {
 <Navbar/>
 <Hero/>
 <Test/>
+<HowToUse/>
 <Footer/>
     </div>
   );
