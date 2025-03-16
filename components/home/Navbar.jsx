@@ -81,7 +81,7 @@ const Navbar = () => {
                                             <h1 className="text-red-500 font-bold text-lg">{user?.fullName}</h1>
                                         </div>
                                     ) : (
-                                        <div className="flex items-center justify-center pl-16 gap-4">
+                                        <div className="flex items-center justify-center gap-4">
                                             <Link href="/sign-in">
                                                 <Button variant="ghost" className="text-gray-900 border border-gray-900/50 hover:bg-gray-300">Signin</Button>
                                             </Link>
